@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Booking = ({ desk, onSubmit }) => {
+const Booking = ({ desk , onSubmit }) => {
   const [hours, setHours] = useState(1);
   const [membership, setMembership] = useState("Basic");
 
@@ -11,8 +11,8 @@ const Booking = ({ desk, onSubmit }) => {
   return (
     <div className="booking">
       <h2>Desk Booking {desk.id}</h2>
-      {desk.type === 'Individual' && (
-        <div>
+      {desk.type === "Individual" && (
+        <>
           <label>
             Membership:
             <select value={membership} onChange={(e) => setMembership(e.target.value)}>
@@ -21,11 +21,11 @@ const Booking = ({ desk, onSubmit }) => {
               <option value="Executive">Executive - ₦28000/hr</option>
             </select>
           </label>
-        </div>
+        </>
       )}
       <label>
         Hours:
-        <input type="number" value={hours} onChange={(e) => setHours(e.target.value)} min="1" />
+        <input type="number" value={hours} onChange={(e) => setHours(e.target.value)} />
       </label>
       <button onClick={handleBooking}>Book</button>
     </div>
